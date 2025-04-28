@@ -39,7 +39,7 @@ public class TimeSLList {
             }
             time.addLast(sw.elapsedTime());
             op.addLast(10000);
-            N *= 2;
+            N *= 1;
         }
         printTimingTable(Ns, time, op);
     }
