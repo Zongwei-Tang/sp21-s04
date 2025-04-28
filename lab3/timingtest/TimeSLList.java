@@ -27,7 +27,7 @@ public class TimeSLList {
         AList<Double> time = new AList<>();
         AList<Integer> op = new AList<>();
         int N = 1000;
-        while (N <= 128000){
+        while (N <= 64000){
             Ns.addLast(N);
             SLList<Integer> truelist = new SLList<>();
             for (int j = 0; j < N; j++){
