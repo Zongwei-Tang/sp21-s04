@@ -3,7 +3,7 @@ package deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class LinkedListDeque<T> implements Iterable<T>{
+public class LinkedListDeque<T> implements Iterable<T>, Deque <T>{
     public class Node{
         private T item;
         private Node prev;
@@ -43,10 +43,6 @@ public class LinkedListDeque<T> implements Iterable<T>{
         tail.prev.next = temp;
         tail.prev = temp;
         size += 1;
-    }
-
-    public boolean isEmpty(){
-        return size == 0;
     }
 
     public int size(){
