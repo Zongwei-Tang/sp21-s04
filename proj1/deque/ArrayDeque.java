@@ -16,11 +16,11 @@ public class ArrayDeque<T> implements Iterable<T> {
     }
 
     public void addFirst(T item){
-        if (size+1 > truelist.length){
+        if (size + 1 > truelist.length){
             resize(truelist.length * 2);
         }
         truelist[first] = item;
-        first = (first + 1) % truelist.length;
+        first = (first - 1 + truelist.length) % truelist.length;
         size += 1;
     }
 
@@ -102,7 +102,14 @@ public class ArrayDeque<T> implements Iterable<T> {
             return false;
         }
         for (int i = 0; i < size; i++){
-            if (!(this.get(i).equals(other.get(i)))){
+            T thisitem = this.get(i);
+            T otheritem = other.get(i);
+            if (thisitem == null || otheritem == null){
+                if (!(thisitem == null && otheritem == null)){
+                    return false;
+                }
+            }
+            else if (!(this.get(i).equals(other.get(i)))){
                 return false;
             }
         }
