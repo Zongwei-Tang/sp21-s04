@@ -12,7 +12,7 @@ public class ArrayDeque<T> implements Iterable<T> {
         truelist = (T[]) new Object[8];
         size = 0;
         first = 7;
-        last = 0;
+        last = 7;
     }
 
     public void addFirst(T item){
@@ -54,12 +54,13 @@ public class ArrayDeque<T> implements Iterable<T> {
         if (size <= 0){
             return null;
         }
-        if ((double) (size - 1) / truelist.length < 0.25){
+        if ((truelist.length >= 16) && (double) (size - 1) / truelist.length < 0.25){
             resize(truelist.length / 2);
         }
         first = (first + 1) % truelist.length;
         T a = truelist[first];
         truelist[first] = null;
+        size -= 1;
         return a;
     }
 
@@ -67,17 +68,18 @@ public class ArrayDeque<T> implements Iterable<T> {
         if (size <= 0){
             return null;
         }
-        if ((double) (size - 1) / truelist.length < 0.25){
+        if ((truelist.length >= 16) && (double) (size - 1) / truelist.length < 0.25){
             resize(truelist.length / 2);
         }
         T a = truelist[last];
         truelist[last] = null;
         last = (last - 1 + truelist.length) % truelist.length;
+        size -= 1;
         return a;
     }
 
     public T get(int index){
-        if (index <= size){
+        if (index >= size || index < 0){
             return null;
         }
         int j = (first + 1) % truelist.length;
