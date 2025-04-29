@@ -83,7 +83,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque <T>{
     }
 
     public T get(int index){
-        if (index >= size){
+        if (index >= size || index < 0){
             return null;
         } else{
             Node current = head.next;
