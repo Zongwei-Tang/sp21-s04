@@ -112,7 +112,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
     private class ArrayDequeIterator implements Iterator<T> {
         private int current;
         private int remain;
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             current = first;
             remain = size;
         }
