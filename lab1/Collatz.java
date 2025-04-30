@@ -3,7 +3,6 @@
  */
 public class Collatz {
 
-    /** Buggy implementation of nextNumber! */
     public static Integer nextNumber(int n) {
         if (n == 1){
             return null;
